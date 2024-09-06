@@ -31,19 +31,10 @@ jobs:
                     npm install
                     npm run docs:build
 
-            -   name: Upload artifact
-                uses: actions/upload-pages-artifact@v2
+            -   name: Deploy
+                uses: crazy-max/ghaction-github-pages@v2.5.0
+                env:
+                    GITHUB_TOKEN: ${{ secrets.TOKEN }}
                 with:
-                    path: .vitepress/dist
-
-    deploy:
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        needs: build
-        runs-on: ubuntu-latest
-        name: Deploy
-        steps:
-            -   name: Deploy to GitHub Pages
-                id: deployment
-                uses: actions/deploy-pages@v2
+                    target_branch: gh-pages
+                    build_dir: .vitepress/dist
