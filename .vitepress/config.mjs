@@ -2,8 +2,9 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: "互联网典中典收录",
-    description: "",
+    base: '/Jokes-on-the-Internet/',
+    title: '互联网典中典收录',
+    description: '',
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
